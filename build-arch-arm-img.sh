@@ -51,7 +51,7 @@ cp /usr/bin/qemu-arm-static root/usr/bin/
 mount --bind /proc root/proc
 mount --bind /sys root/sys
 mount --bind /dev root/dev
-chroot root pacman -Rns --noconfirm linux-firmware-intel linux-firmware-nvidia linux-firmware-atheros linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-other binutils tpm2-tss pcsclite krb5 audit dialog pciutils
+chroot root pacman -Rdd --noconfirm linux-firmware linux-firmware-intel linux-firmware-nvidia linux-firmware-atheros linux-firmware-amdgpu linux-firmware-mediatek linux-firmware-other linux-firmware-broadcom
 umount root/proc root/sys root/dev
 rm root/usr/bin/qemu-arm-static
 # Turn off access time
