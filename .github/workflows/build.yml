@@ -10,14 +10,14 @@ jobs:
     strategy:
       matrix:
         release:
-        - ArchLinuxARM-rpi-2-latest
+        - ArchLinuxARM-rpi-armv7-latest
 
     env:
       TARGET_IMG: ${{ matrix.release }}
       LIBARCHIVE_VERSION: 3.4.2
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Get tag name
       uses: olegtarasov/get-tag@v2
