@@ -30,7 +30,7 @@ fi
 popd
 
 # Set up image file
-truncate -s 1700M "${TARGET_IMAGE}"
+truncate -s 1720M "${TARGET_IMAGE}"
 losetup /dev/loop10 "${TARGET_IMAGE}"
 parted -s /dev/loop10 mklabel msdos
 parted -s /dev/loop10 mkpart primary fat32 -a optimal -- 0% 100MB
