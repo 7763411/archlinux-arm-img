@@ -42,7 +42,7 @@ jobs:
       run: |
         sudo ./build-arch-arm-img.sh $TARGET_IMG
 
-    - uses: ncipollo/release-action@v4
+    - uses: ncipollo/release-action@v1
       if: steps.tag_name.outputs.tag
       with:
         artifacts: "ArchLinuxARM-*.zip,ArchLinuxARM-*.md5"
