@@ -51,7 +51,7 @@ cp /usr/bin/qemu-arm-static root/usr/bin/
 mount --bind /proc root/proc
 mount --bind /sys root/sys
 mount --bind /dev root/dev
-chroot root /bin/bash -c "pacman -Qi | grep 'Name\|Installed Size' | paste - - | sort -k4 -rh | head -30 || true"
+chroot root /bin/bash -c "pacman -Qi | grep 'Name\|Installed Size' | paste - - | sort -k5 -rh | head -30 || true"
 umount root/proc root/sys root/dev
 rm root/usr/bin/qemu-arm-static
 # Turn off access time
