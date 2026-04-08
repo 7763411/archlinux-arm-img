@@ -1,4 +1,4 @@
-# archlinux-arm-img
+# archlinux-arm-img 
 [![Build Status](https://travis-ci.com/bcomnes/archlinux-arm-img.svg?branch=master)](https://travis-ci.com/bcomnes/archlinux-arm-img)
 
 **NOTE**: DEPRECIATED IN FAVOR OF https://github.com/bcomnes/raspi-packer
