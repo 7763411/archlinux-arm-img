@@ -42,7 +42,7 @@ jobs:
       run: |
         sudo ./build-arch-arm-img.sh $TARGET_IMG
 
-    - uses: ncipollo/release-action@v1
+    - uses: ncipollo/release-action@v4
       if: steps.tag_name.outputs.tag
       with:
         artifacts: "ArchLinuxARM-*.zip,ArchLinuxARM-*.md5"
@@ -50,7 +50,7 @@ jobs:
         allowUpdates: true
 
     - name: Upload img artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: ${{env.TARGET_IMG}}.zip
         path: ${{env.TARGET_IMG}}.zip
