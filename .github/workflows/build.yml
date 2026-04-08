@@ -10,9 +10,7 @@ jobs:
     strategy:
       matrix:
         release:
-        - ArchLinuxARM-rpi-3-latest
         - ArchLinuxARM-rpi-2-latest
-        - ArchLinuxARM-rpi-4-latest
 
     env:
       TARGET_IMG: ${{ matrix.release }}
@@ -32,7 +30,7 @@ jobs:
         key: libarchive-${{env.LIBARCHIVE_VERSION}}
 
     - name: Cache images
-      uses: actions/cache@v1
+      uses: actions/cache@v4
       with:
         path: ./images
         key: images-${{env.TARGET_IMG}}
@@ -57,7 +55,7 @@ jobs:
         name: ${{env.TARGET_IMG}}.zip
         path: ${{env.TARGET_IMG}}.zip
     - name: Upload md5 artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         path: ${{env.TARGET_IMG}}.zip.md5
         name: ${{env.TARGET_IMG}}.zip.md5
