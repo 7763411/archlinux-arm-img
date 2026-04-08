@@ -24,7 +24,7 @@ jobs:
       id: tag_name
 
     - name: Cache libarchive build
-      uses: actions/cache@v1
+      uses: actions/cache@v4
       with:
         path: ./libarchive-${{env.LIBARCHIVE_VERSION}}
         key: libarchive-${{env.LIBARCHIVE_VERSION}}
