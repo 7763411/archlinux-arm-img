@@ -51,7 +51,7 @@ cp /usr/bin/qemu-arm-static root/usr/bin/
 mount --bind /proc root/proc
 mount --bind /sys root/sys
 mount --bind /dev root/dev
-chroot root pacman -Rns --noconfirm man-db man-pages texinfo krb5 audit lvm2 cryptsetup pciutils usbutils mdadm
+chroot root /bin/bash -c "pacman -Qi | grep 'Name\|Installed Size' | paste - - | sort -k4 -rh | head -30 || true"
 umount root/proc root/sys root/dev
 rm root/usr/bin/qemu-arm-static
 # Turn off access time
@@ -61,6 +61,9 @@ umount root/boot root
 e2fsck -f /dev/loop10p2
 resize2fs -M /dev/loop10p2
 losetup -d /dev/loop10
+# Truncate image file to actual size
+PART_END=$(parted -s "${TARGET_IMAGE}" unit B print | grep "^ 2" | awk '{print $3}' | tr -d B)
+truncate -s $((PART_END + 1)) "${TARGET_IMAGE}"
 rm -rf root
 # Zip img
 zip -r9 --display-dots "${TARGET_ZIP}" "${TARGET_IMAGE}"
